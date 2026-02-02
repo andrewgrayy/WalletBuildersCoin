@@ -32,9 +32,30 @@ const CreateWallet = () => {
     }
   };
 
-  const copyToClipboard = (text, label) => {
-    navigator.clipboard.writeText(text);
-    toast.success(`${label} copied to clipboard!`);
+  const copyToClipboard = async (text, label) => {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        toast.success(`${label} copied to clipboard!`);
+      } else {
+        // Fallback for browsers without clipboard API
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+          document.execCommand('copy');
+          toast.success(`${label} copied to clipboard!`);
+        } catch (err) {
+          toast.error('Failed to copy. Please copy manually.');
+        }
+        document.body.removeChild(textArea);
+      }
+    } catch (error) {
+      toast.error('Failed to copy. Please copy manually.');
+    }
   };
 
   return (
