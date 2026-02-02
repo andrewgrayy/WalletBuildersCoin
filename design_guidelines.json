@@ -1,0 +1,163 @@
+{
+  "design_system": {
+    "identity": {
+      "name": "The Obsidian Forge",
+      "archetype": "Electric & Neon (Archetype 7)",
+      "vibe": "Futuristic, Industrial, High-Precision, Web3 Native",
+      "core_philosophy": "A digital forge for the next generation of crypto tools. Dark, raw, and electric."
+    },
+    "typography": {
+      "font_family": {
+        "heading": "Unbounded, sans-serif",
+        "body": "Manrope, sans-serif",
+        "mono": "JetBrains Mono, monospace"
+      },
+      "imports": [
+        "@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;800&family=Manrope:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');"
+      ],
+      "scale": {
+        "h1": "text-5xl md:text-7xl font-black tracking-tighter uppercase",
+        "h2": "text-3xl md:text-5xl font-bold tracking-tight",
+        "h3": "text-2xl md:text-3xl font-semibold tracking-tight",
+        "body": "text-base md:text-lg font-normal leading-relaxed",
+        "mono": "text-sm md:text-base font-mono tracking-wide"
+      }
+    },
+    "colors": {
+      "palette": {
+        "background": "#050505",
+        "foreground": "#EDEDED",
+        "card": "#0A0A0A",
+        "card_foreground": "#EDEDED",
+        "popover": "#0A0A0A",
+        "popover_foreground": "#EDEDED",
+        "primary": "#00F0FF",
+        "primary_foreground": "#000000",
+        "secondary": "#7000FF",
+        "secondary_foreground": "#FFFFFF",
+        "muted": "#1F1F1F",
+        "muted_foreground": "#888888",
+        "accent": "#1F1F1F",
+        "accent_foreground": "#EDEDED",
+        "destructive": "#FF003C",
+        "destructive_foreground": "#FFFFFF",
+        "border": "#1F1F1F",
+        "input": "#1F1F1F",
+        "ring": "#00F0FF"
+      },
+      "gradients": {
+        "hero": "radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.15) 0%, rgba(5, 5, 5, 0) 70%)",
+        "card_hover": "linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%)",
+        "beam": "linear-gradient(to right, transparent, #00F0FF, transparent)"
+      }
+    },
+    "layout": {
+      "spacing": {
+        "container_padding": "p-6 md:p-12 lg:p-24",
+        "section_gap": "gap-12 md:gap-24",
+        "element_gap": "gap-4 md:gap-8"
+      },
+      "grid_strategies": {
+        "dashboard": "grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6",
+        "landing": "grid grid-cols-1 md:grid-cols-12 gap-8",
+        "bento": "grid grid-cols-1 md:grid-cols-4 auto-rows-[minmax(180px,auto)] gap-4"
+      },
+      "border_radius": {
+        "default": "rounded-none",
+        "card": "rounded-xl",
+        "button": "rounded-md"
+      }
+    },
+    "components": {
+      "buttons": {
+        "primary": "bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-wider rounded-sm shadow-[0_0_15px_rgba(0,240,255,0.3)] transition-all hover:shadow-[0_0_25px_rgba(0,240,255,0.5)]",
+        "secondary": "bg-secondary text-secondary-foreground hover:bg-secondary/90 font-bold uppercase tracking-wider rounded-sm",
+        "outline": "border border-primary/50 text-primary hover:bg-primary/10 font-mono uppercase tracking-widest rounded-sm"
+      },
+      "cards": {
+        "base": "bg-card border border-border/50 backdrop-blur-xl relative overflow-hidden group",
+        "hover_effect": "hover:border-primary/50 transition-colors duration-300"
+      },
+      "inputs": {
+        "base": "bg-input/50 border-border focus:border-primary focus:ring-1 focus:ring-primary/50 font-mono text-sm rounded-sm"
+      }
+    },
+    "visual_enhancers": {
+      "textures": {
+        "noise": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E\")"
+      },
+      "effects": {
+        "glass": "backdrop-blur-xl bg-black/40 border border-white/10",
+        "neon_glow": "shadow-[0_0_10px_rgba(0,240,255,0.5)]",
+        "glitch_text": "relative inline-block before:content-[attr(data-text)] before:absolute before:top-0 before:left-0.5 before:text-destructive before:opacity-50 before:animate-pulse"
+      }
+    },
+    "motion": {
+      "transitions": "transition-all duration-300 ease-out",
+      "hover": "hover:-translate-y-1 hover:shadow-lg",
+      "entrance": "animate-in fade-in slide-in-from-bottom-4 duration-700"
+    }
+  },
+  "assets": {
+    "images": {
+      "hero_background": {
+        "url": "https://images.unsplash.com/photo-1639322537504-6427a16b0a28?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Abstract blockchain network dark",
+        "usage": "Hero section background with heavy overlay"
+      },
+      "token_creator": {
+        "url": "https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Ethereum coin 3d render",
+        "usage": "Visual for token creation page"
+      },
+      "mining_infrastructure": {
+        "url": "https://images.unsplash.com/photo-1506399558188-acca6f8cbf41?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Futuristic data center",
+        "usage": "Background for wallet management or mining section"
+      },
+      "ai_contract": {
+        "url": "https://images.unsplash.com/photo-1739054730201-4b6463484e3c?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Abstract processor lines",
+        "usage": "Visual for AI Smart Contract Writer"
+      }
+    },
+    "icons": {
+      "library": "lucide-react",
+      "style": "Stroke width 1.5px, sharp edges where possible"
+    }
+  },
+  "page_strategies": {
+    "landing": {
+      "layout": "Asymmetric Tetris Grid",
+      "hero": "Full screen, centered typography 'BUILD THE FUTURE', background video/image with noise overlay.",
+      "features": "Bento grid with glass cards. Hover reveals neon borders."
+    },
+    "dashboard": {
+      "layout": "Sidebar navigation (collapsible), dense data grid.",
+      "widgets": "Cardless design for charts to maximize space. Use borders to separate areas.",
+      "typography": "Mono font for all numbers and addresses."
+    },
+    "token_creator": {
+      "layout": "Split screen: Left side form, Right side real-time preview of the token card.",
+      "interaction": "Step-by-step wizard with progress bar."
+    }
+  },
+  "instructions_to_main_agent": [
+    "1. INSTALL FONTS: Add the Google Fonts import to index.css immediately.",
+    "2. CONFIGURE TAILWIND: Update tailwind.config.js with the specific colors and font families defined above.",
+    "3. GLOBAL STYLES: Apply the 'noise' texture to the body background in index.css to give a film-grain look.",
+    "4. COMPONENTS: When using Shadcn components, override the default 'rounded-md' with 'rounded-sm' or 'rounded-none' for a sharper, industrial look.",
+    "5. CHARTS: Use Recharts with the custom color palette (Primary: Cyan, Secondary: Violet).",
+    "6. AI WRITER: For the AI contract writer, use a 'terminal' aesthetic - black background, green/cyan mono text.",
+    "7. NO GRADIENT TEXT: Do not use gradient text for headings. Keep it solid White or Cyan for maximum contrast.",
+    "8. DATA-TESTID: Ensure every button and input has a data-testid attribute."
+  ],
+  "universal_guidelines": [
+    "Do not use generic centered layouts.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur).",
+    "Every interaction needs micro-animations.",
+    "Use 2-3x more spacing than feels comfortable.",
+    "Never use AI assistant Emoji characters."
+  ]
+}
