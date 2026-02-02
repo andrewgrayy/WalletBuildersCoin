@@ -159,14 +159,25 @@ async def get_balance(address: str):
         if not w3.is_address(address):
             raise HTTPException(status_code=400, detail="Invalid Ethereum address")
         
-        balance_wei = w3.eth.get_balance(address)
-        balance_eth = w3.from_wei(balance_wei, 'ether')
-        
-        return BalanceResponse(
-            address=address,
-            balance=str(balance_wei),
-            balance_eth=float(balance_eth)
-        )
+        # Try to get balance with timeout handling
+        try:
+            balance_wei = w3.eth.get_balance(address)
+            balance_eth = w3.from_wei(balance_wei, 'ether')
+            
+            return BalanceResponse(
+                address=address,
+                balance=str(balance_wei),
+                balance_eth=float(balance_eth)
+            )
+        except Exception as rpc_error:
+            # Return 0 balance if RPC fails rather than error
+            return BalanceResponse(
+                address=address,
+                balance="0",
+                balance_eth=0.0
+            )
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
