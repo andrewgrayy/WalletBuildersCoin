@@ -22,8 +22,24 @@ mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
-# Web3 setup (using public Ethereum mainnet RPC)
-w3 = Web3(Web3.HTTPProvider('https://eth.llamarpc.com'))
+# Web3 setup (using multiple RPC providers for reliability)
+RPC_PROVIDERS = [
+    'https://cloudflare-eth.com',
+    'https://rpc.ankr.com/eth',
+    'https://eth.llamarpc.com'
+]
+
+def get_web3_connection():
+    for rpc in RPC_PROVIDERS:
+        try:
+            w3_instance = Web3(Web3.HTTPProvider(rpc, request_kwargs={'timeout': 10}))
+            if w3_instance.is_connected():
+                return w3_instance
+        except:
+            continue
+    return Web3(Web3.HTTPProvider(RPC_PROVIDERS[0], request_kwargs={'timeout': 10}))
+
+w3 = get_web3_connection()
 
 # Create the main app without a prefix
 app = FastAPI()
